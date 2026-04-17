@@ -1,0 +1,130 @@
+#ace-chat-root {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 99999;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+#ace-chat-root .ace-bubble {
+  width: 58px;
+  height: 58px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #635bff, #1f64ff);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(31, 100, 255, 0.35);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#ace-chat-root .ace-window {
+  width: 420px;
+  max-width: calc(100vw - 30px);
+  height: 620px;
+  max-height: calc(100vh - 100px);
+  margin-bottom: 12px;
+  border-radius: 16px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 18px 50px rgba(16, 24, 40, 0.2);
+  overflow: hidden;
+}
+
+#ace-chat-root header {
+  background: #0f172a;
+  color: #fff;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#ace-chat-root .ace-close {
+  background: transparent;
+  color: #fff;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#ace-chat-root .ace-messages {
+  flex: 1;
+  overflow: auto;
+  padding: 12px;
+  background: #f8fafc;
+}
+
+#ace-chat-root .ace-msg {
+  margin-bottom: 10px;
+  border-radius: 12px;
+  padding: 10px 12px;
+  line-height: 1.45;
+  max-width: 90%;
+}
+
+#ace-chat-root .ace-user {
+  margin-left: auto;
+  background: #dbeafe;
+}
+
+#ace-chat-root .ace-assistant {
+  margin-right: auto;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+}
+
+#ace-chat-root .ace-typing {
+  padding: 8px 12px;
+  color: #475569;
+  font-style: italic;
+}
+
+#ace-chat-root .ace-preview {
+  border-top: 1px solid #e2e8f0;
+  padding: 10px 12px;
+  background: #fff;
+}
+
+#ace-chat-root .ace-diff {
+  max-height: 140px;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 1.5;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+#ace-chat-root .ace-diff ins {
+  background: #dcfce7;
+  text-decoration: none;
+}
+
+#ace-chat-root .ace-diff del {
+  background: #fee2e2;
+  text-decoration: line-through;
+}
+
+#ace-chat-root .ace-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+#ace-chat-root .ace-form {
+  border-top: 1px solid #e2e8f0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#ace-chat-root textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 70px;
+}
