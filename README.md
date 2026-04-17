@@ -9,6 +9,7 @@ AI Chat Editor embeds a ChatGPT-like assistant into WordPress admin and optional
 - Context-aware editing (`post`, `page`, `lp_course`, `lp_lesson`, `lp_quiz`).
 - Multi-provider support:
   - OpenAI
+  - OpenRouter
   - Anthropic (Claude)
   - Google Gemini
   - Local HTTP endpoint

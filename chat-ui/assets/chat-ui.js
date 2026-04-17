@@ -105,9 +105,13 @@
     }, 18);
   };
 
-  const toggleWindow = () => {
-    state.open = !state.open;
+  const setWindowOpen = (isOpen) => {
+    state.open = Boolean(isOpen);
     win.hidden = !state.open;
+  };
+
+  const toggleWindow = () => {
+    setWindowOpen(!state.open);
   };
 
   const request = async (path, method = 'GET', body) => {
@@ -132,7 +136,25 @@
   };
 
   bubble.addEventListener('click', toggleWindow);
-  closeBtn.addEventListener('click', toggleWindow);
+  closeBtn.addEventListener('click', () => setWindowOpen(false));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && state.open) {
+      setWindowOpen(false);
+    }
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!state.open) {
+      return;
+    }
+
+    if (root.contains(event.target)) {
+      return;
+    }
+
+    setWindowOpen(false);
+  });
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
