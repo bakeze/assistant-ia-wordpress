@@ -66,6 +66,8 @@ final class ACE_Settings
             'provider'          => 'openai',
             'openai_api_key'    => '',
             'openai_model'      => 'gpt-4.1-mini',
+            'openrouter_api_key'=> '',
+            'openrouter_model'  => 'openai/gpt-4.1-mini',
             'anthropic_api_key' => '',
             'anthropic_model'   => 'claude-3-5-sonnet-latest',
             'gemini_api_key'    => '',
@@ -85,9 +87,11 @@ final class ACE_Settings
         $defaults = $this->defaults();
 
         return [
-            'provider'          => in_array($input['provider'] ?? '', ['openai', 'anthropic', 'gemini', 'local'], true) ? $input['provider'] : $defaults['provider'],
+            'provider'          => in_array($input['provider'] ?? '', ['openai', 'openrouter', 'anthropic', 'gemini', 'local'], true) ? $input['provider'] : $defaults['provider'],
             'openai_api_key'    => sanitize_text_field($input['openai_api_key'] ?? ''),
             'openai_model'      => sanitize_text_field($input['openai_model'] ?? $defaults['openai_model']),
+            'openrouter_api_key'=> sanitize_text_field($input['openrouter_api_key'] ?? ''),
+            'openrouter_model'  => sanitize_text_field($input['openrouter_model'] ?? $defaults['openrouter_model']),
             'anthropic_api_key' => sanitize_text_field($input['anthropic_api_key'] ?? ''),
             'anthropic_model'   => sanitize_text_field($input['anthropic_model'] ?? $defaults['anthropic_model']),
             'gemini_api_key'    => sanitize_text_field($input['gemini_api_key'] ?? ''),
@@ -127,6 +131,7 @@ final class ACE_Settings
             ?>
             <select name="<?php echo esc_attr(self::OPTION_KEY . '[' . $id . ']'); ?>">
                 <option value="openai" <?php selected($value, 'openai'); ?>>OpenAI</option>
+                <option value="openrouter" <?php selected($value, 'openrouter'); ?>>OpenRouter</option>
                 <option value="anthropic" <?php selected($value, 'anthropic'); ?>>Anthropic Claude</option>
                 <option value="gemini" <?php selected($value, 'gemini'); ?>>Google Gemini</option>
                 <option value="local" <?php selected($value, 'local'); ?>>Local Endpoint</option>
@@ -162,6 +167,8 @@ final class ACE_Settings
             'provider'          => ['label' => __('Provider', 'ai-chat-editor'), 'type' => 'select'],
             'openai_api_key'    => ['label' => __('OpenAI API Key', 'ai-chat-editor'), 'type' => 'password'],
             'openai_model'      => ['label' => __('OpenAI Model', 'ai-chat-editor'), 'type' => 'text'],
+            'openrouter_api_key'=> ['label' => __('OpenRouter API Key', 'ai-chat-editor'), 'type' => 'password'],
+            'openrouter_model'  => ['label' => __('OpenRouter Model', 'ai-chat-editor'), 'type' => 'text'],
             'anthropic_api_key' => ['label' => __('Anthropic API Key', 'ai-chat-editor'), 'type' => 'password'],
             'anthropic_model'   => ['label' => __('Anthropic Model', 'ai-chat-editor'), 'type' => 'text'],
             'gemini_api_key'    => ['label' => __('Gemini API Key', 'ai-chat-editor'), 'type' => 'password'],
